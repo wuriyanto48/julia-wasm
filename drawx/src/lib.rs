@@ -87,9 +87,9 @@ pub fn generate_julia(real_number: f32, im_number: f32, width: u32, height: u32)
             let pixel = imgbuf.get_pixel_mut(x, y);
             let data = (*pixel as image::Rgb<u8>).0;
 
-            let red = data[0];
-            let green = (i << 2) as u8;
-            let blue = data[2];
+            let red = (i << 3) as u8;
+            let green = data[1];
+            let blue = (i << 2) as u8;
             
             *pixel = image::Rgb([red, green, blue]);
         }
